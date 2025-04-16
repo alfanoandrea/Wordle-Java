@@ -45,10 +45,9 @@ class Wordle {
                     if (i == j) {
                         s = s.substring(0, i) + "G" + s.substring(i + 1);
                         break;
-                    } else {
-                        s = s.substring(0, i) + "Y" + s.substring(i + 1);
-                        break;
-                    }  
+                    }
+                    else
+                        s = s.substring(0, i) + "Y" + s.substring(i + 1);  
             }
         }        
         return s;
