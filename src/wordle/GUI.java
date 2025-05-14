@@ -36,14 +36,13 @@ public class GUI extends javax.swing.JFrame {
     
     
     public void mioInitComponents() {
-    // Colori personalizzati
-    Color sfondoGriglia = new Color(18, 18, 19); // sfondo scuro tipo Wordle
-    Color coloreCella = new Color(58, 58, 60);   // grigio scuro per le celle
+    Color sfondoGriglia = new Color(18, 18, 19);
+    Color coloreCella = new Color(58, 58, 60);
     Font fontCella = new Font("Arial", Font.BOLD, 32);
 
     griglia = new JLabel[6][5];
-    jPanelGriglia.removeAll(); // Pulisce il pannello se già contiene componenti
-    jPanelGriglia.setLayout(new java.awt.GridLayout(6, 5, 5, 5)); // Spaziatura tra celle
+    jPanelGriglia.removeAll();
+    jPanelGriglia.setLayout(new java.awt.GridLayout(6, 5, 5, 5));
     jPanelGriglia.setBackground(sfondoGriglia);
 
     for (int i = 0; i < 6; i++) {
@@ -62,7 +61,6 @@ public class GUI extends javax.swing.JFrame {
         }
     }
 
-    // Cambia anche il colore di sfondo generale
     getContentPane().setBackground(sfondoGriglia);
     jPanel1.setBackground(sfondoGriglia);
     jLabel1.setForeground(Color.WHITE);
@@ -76,8 +74,7 @@ public class GUI extends javax.swing.JFrame {
     // Codice aggiunto automaticamente o vuoto
     }
 
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    @SuppressWarnings("unchecked")                       
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -91,7 +88,7 @@ public class GUI extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48));
         jLabel1.setText("WORDLE");
         jLabel1.setOpaque(true);
 
@@ -120,7 +117,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24));
         jLabel2.setText("DIMMI LA PAROLA:");
 
         txtParola.setActionCommand("parola");
@@ -160,18 +157,15 @@ public class GUI extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
+    }                       
 
-  
-    
-    // Variables declaration - do not modify                     
+                      
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelGriglia;
     private javax.swing.JLabel lblConsentito;
-    private javax.swing.JTextField txtParola;
-    // End of variables declaration                   
+    private javax.swing.JTextField txtParola;                 
     
 
     
