@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
 
-public class WordleModel {
+public class    WordleModel {
 
     private String parola;
     public int mosse = 0;
@@ -93,5 +93,13 @@ public class WordleModel {
         } catch (IOException e) {
             System.out.println("Errore file");
         }
+    }
+
+    public String getLingua() {
+        return lingua;
+    }
+
+    public void setLingua(String lingua) {
+        this.lingua = lingua;
     }
 }

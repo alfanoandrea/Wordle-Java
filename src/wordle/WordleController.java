@@ -59,7 +59,8 @@ public class WordleController implements ActionListener {
         String tentativo = view.getTxtParola().getText().trim().toLowerCase();
 
         if (!model.controlloParola(tentativo) || tentativo.length() != 5) {
-            view.getLblConsentito().setText("Parola non valida!");
+            if (model.getLingua().equals("IT")) view.getLblConsentito().setText("Parola non valida!");
+            else view.getLblConsentito().setText("Invalid word!");
             view.getTxtParola().setText("");
             return;
         }
@@ -69,11 +70,13 @@ public class WordleController implements ActionListener {
         updateLabels(colori, tentativo);
 
         if (model.controlloVittoria(tentativo)) {
-            view.getLblConsentito().setText("Hai vinto!");
+            if (model.getLingua().equals("IT")) view.getLblConsentito().setText("Hai vinto!");
+            else view.getLblConsentito().setText("You won!");
             giocoFinito = true;
             view.getTxtParola().setEditable(false);
         } else if (model.mosse == 5) { // 6 tentativi: 0..5
-            view.getLblConsentito().setText("Hai perso! Parola: " + model.getParola().toUpperCase());
+            if(model.getLingua().equals("IT")) view.getLblConsentito().setText("Hai perso! Parola: " + model.getParola().toUpperCase());
+            else view.getLblConsentito().setText("You lost! Word: " + model.getParola().toUpperCase());
             giocoFinito = true;
             view.getTxtParola().setEditable(false);
         }
