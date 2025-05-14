@@ -17,6 +17,8 @@ public class    WordleModel {
 
     public WordleModel() {
         this("IT");
+        caricaDizionario();
+        parolaCasuale();
     }
 
     public WordleModel(String lingua) {

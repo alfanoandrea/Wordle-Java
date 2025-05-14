@@ -131,7 +131,6 @@ public class StartScreen extends JFrame {
         WordleModel model = new WordleModel(lingua);
         GUI gui = new GUI();
         WordleController controller = new WordleController(gui, model);
-        gui.setVisible(true);
         dispose();
     }
 }
