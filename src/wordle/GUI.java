@@ -2,6 +2,7 @@ package wordle;
 
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -29,27 +30,54 @@ public class GUI extends javax.swing.JFrame {
         initComponents();
         mioInitComponents();
         setVisible(true);
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/icon.png"));
+        setIconImage(icon.getImage());
     }
     
     
     public void mioInitComponents() {
-        griglia = new JLabel[6][5];
-        for(int i=0; i<6; i++) {
-            for(int j=0; j<5; j++) {
-                griglia[i][j] = new JLabel();
-                griglia[i][j].setBackground(Color.LIGHT_GRAY);
-                griglia[i][j].setOpaque(true);
-                griglia[i][j].setBorder(new LineBorder(Color.BLACK,2));
-                griglia[i][j].setFont(new Font("Segoe UI",Font.PLAIN,24));
-                griglia[i][j].setHorizontalAlignment(SwingConstants.CENTER);
-                griglia[i][j].setVerticalAlignment(SwingConstants.CENTER);
-                this.jPanelGriglia.add(griglia[i][j]);
-            }
+    // Colori personalizzati
+    Color sfondoGriglia = new Color(18, 18, 19); // sfondo scuro tipo Wordle
+    Color coloreCella = new Color(58, 58, 60);   // grigio scuro per le celle
+    Font fontCella = new Font("Arial", Font.BOLD, 32);
+
+    griglia = new JLabel[6][5];
+    jPanelGriglia.removeAll(); // Pulisce il pannello se già contiene componenti
+    jPanelGriglia.setLayout(new java.awt.GridLayout(6, 5, 5, 5)); // Spaziatura tra celle
+    jPanelGriglia.setBackground(sfondoGriglia);
+
+    for (int i = 0; i < 6; i++) {
+        for (int j = 0; j < 5; j++) {
+            JLabel cella = new JLabel();
+            cella.setOpaque(true);
+            cella.setBackground(coloreCella);
+            cella.setForeground(Color.WHITE);
+            cella.setFont(fontCella);
+            cella.setHorizontalAlignment(SwingConstants.CENTER);
+            cella.setVerticalAlignment(SwingConstants.CENTER);
+            cella.setBorder(new LineBorder(Color.DARK_GRAY, 2, true));
+            cella.setPreferredSize(new java.awt.Dimension(80, 80));
+            griglia[i][j] = cella;
+            jPanelGriglia.add(cella);
         }
     }
 
+    // Cambia anche il colore di sfondo generale
+    getContentPane().setBackground(sfondoGriglia);
+    jPanel1.setBackground(sfondoGriglia);
+    jLabel1.setForeground(Color.WHITE);
+    jLabel2.setForeground(Color.WHITE);
+    lblConsentito.setForeground(Color.LIGHT_GRAY);
+    txtParola.setFont(new Font("Segoe UI", Font.BOLD, 18));
+    
+}
+
+    private void txtParolaActionPerformed(java.awt.event.ActionEvent evt) {
+    // Codice aggiunto automaticamente o vuoto
+    }
+
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -60,6 +88,8 @@ public class GUI extends javax.swing.JFrame {
         lblConsentito = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel1.setText("WORDLE");
@@ -94,6 +124,11 @@ public class GUI extends javax.swing.JFrame {
         jLabel2.setText("DIMMI LA PAROLA:");
 
         txtParola.setActionCommand("parola");
+        txtParola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtParolaActionPerformed(evt);
+            }
+        });
 
         lblConsentito.setMinimumSize(new java.awt.Dimension(10, 10));
 
@@ -125,18 +160,18 @@ public class GUI extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
   
     
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelGriglia;
     private javax.swing.JLabel lblConsentito;
     private javax.swing.JTextField txtParola;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
     
 
     
